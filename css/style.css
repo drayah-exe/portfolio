@@ -1,0 +1,491 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #111827, #0B0F14);
+  color: #E5E7EB;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 8%;
+}
+
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+}
+
+.hero h1 span {
+  color: #7C3AED;
+}
+
+.hero p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #9CA3AF;
+  max-width: 500px;
+}
+
+.hero .sub {
+  margin-top: 0.5rem;
+  color: #6B7280;
+}
+
+.buttons {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.btn.primary {
+  background: #7C3AED;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35);
+}
+
+.btn.secondary {
+  border: 1px solid #1F2937;
+  color: #E5E7EB;
+}
+
+.btn.secondary:hover {
+  background: #111827;
+}
+
+.hero {
+  animation: fadeIn 1.2 s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about {
+  padding: 6rem 8%;
+  max-width: 900px;
+}
+
+.about h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  color: #9CA3AF;
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+.projects {
+  padding: 6rem 8%;
+}
+
+.projects h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: #111827;
+  border: 1px solid #1F2937;
+  padding: 1.5rem;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.project-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #9CA3AF;
+  line-height: 1.6;
+}
+
+.project-card .tag {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(124, 58, 237, 0.15);
+  color: #7C3AED;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: #7C3AED;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.2s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 15, 20, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Modal Box */
+.modal {
+  background: #111827;
+  border: 1px solid #1F2937;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 420px;
+  width: 90%;
+  position: relative;
+  animation: modalIn 0.35s ease;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.modal p {
+  color: #9CA3AF;
+  line-height: 1.6;
+}
+
+.modal-tag {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(124, 58, 237, 0.15);
+  color: #7C3AED;
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: #9CA3AF;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #E5E7EB;
+}
+
+.contact {
+  padding: 6rem 8%;
+  text-align: center;
+}
+
+.contact h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.contact p {
+  color: #9CA3AF;
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.socials {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.socials a {
+  color: #9CA3AF;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.25s ease;
+}
+
+.socials a:hover {
+  color: #7C3AED;
+}
+
+.footer {
+  padding: 2rem 8%;
+  border-top: 1px solid #1F2937;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 0.8rem;
+  color: #6B7280;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 6%;
+    text-align: left;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Hero Section */
+.hero h1 {
+  font-size: 3.8rem; /* Bigger, still responsive */
+}
+
+.hero p {
+  font-size: 1.15rem; /* Comfortable paragraph size */
+}
+
+/* About Section */
+.about h2 {
+  font-size: 1.9rem;
+}
+
+.about p {
+  font-size: 1.1rem;
+}
+
+/* Projects Section */
+.projects h2 {
+  font-size: 1.9rem;
+}
+
+.project-card h3 {
+  font-size: 1.15rem;
+}
+
+.project-card p {
+  font-size: 1.05rem;
+}
+
+/* Modal */
+.modal h3 {
+  font-size: 1.3rem;
+}
+
+.modal p {
+  font-size: 1.1rem;
+}
+
+/* Contact Section */
+.contact h2 {
+  font-size: 2rem;
+}
+
+.contact p {
+  font-size: 1.1rem;
+}
+
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 4rem 6%;
+  }
+
+  .about h2 {
+    font-size: 1.6rem;
+  }
+
+  .about p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 4rem 6%;
+  }
+
+  .projects h2 {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .project-card {
+    padding: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    max-width: 90%;
+    padding: 1.6rem;
+  }
+
+  .modal h3 {
+    font-size: 1.2rem;
+  }
+
+  .modal p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 4rem 6%;
+  }
+
+  .contact h2 {
+    font-size: 1.8rem;
+  }
+
+  .socials {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 6%;
+  }
+}
+
+
+/* Hero Section */
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+}
+
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+/* About Section */
+.about h2 {
+  font-size: clamp(1.6rem, 4vw, 2rem);
+}
+
+.about p {
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+}
+
+/* Projects Section */
+.projects h2 {
+  font-size: clamp(1.6rem, 4vw, 2rem);
+}
+
+.project-card h3 {
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+}
+
+.project-card p {
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+}
+
+/* Modal */
+.modal h3 {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+}
+
+.modal p {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+/* Contact Section */
+.contact h2 {
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+}
+
+.contact p {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+}
