@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Tech - drayah.exe</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Reset and base styles */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #111827, #0B0F14);
+      color: #E5E7EB;
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+   nav.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #0B0F14;
+  border-bottom: 1px solid #1F2937;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4%;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+nav .logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #7C3AED;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav .nav-links a {
+  color: #9CA3AF;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding-bottom: 4px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  white-space: nowrap;
+}
+
+nav .nav-links a:hover,
+nav .nav-links a.active {
+  color: #7C3AED;
+  border-bottom: 2px solid #7C3AED;
+}
+
+
+    /* Main content */
+    main {
+      max-width: 900px;
+      margin: 100px auto 4rem;
+      padding: 0 8%;
+    }
+
+    main h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 1rem;
+      color: #7C3AED;
+    }
+
+    main p.intro {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      color: #9CA3AF;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: #111827;
+      border: 1px solid #1F2937;
+      border-radius: 14px;
+      padding: 1.6rem;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: #7C3AED;
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.7rem;
+      color: #7C3AED;
+    }
+
+    .project-card p {
+      font-size: 1rem;
+      color: #9CA3AF;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Back to home link */
+    .back-link {
+      display: inline-block;
+      margin-top: 3rem;
+      color: #7C3AED;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1.5px solid transparent;
+      transition: border-color 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .back-link:hover {
+      border-color: #7C3AED;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav.nav {
+        padding: 1rem 5%;
+      }
+
+      main {
+        margin: 80px auto 3rem;
+        padding: 0 5%;
+      }
+
+      nav .nav-links {
+        gap: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <nav class="nav">
+  <div class="logo" tabindex="0" onclick="window.location.href='index.html'">drayah.exe</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+
+  <main>
+    <h1>Simple Tech</h1>
+    <p class="intro">
+      Simple Tech is an all-round tech company passionate about empowering individuals through <strong>AI prompt engineering</strong>, innovative software projects, and accessible tech learning. We focus on practical, creative solutions that combine simplicity with cutting-edge technology.
+    </p>
+
+    <div class="projects-grid">
+      <div class="project-card" tabindex="0">
+        <h3>AI Prompt Engineering</h3>
+        <p>Master the art of crafting effective AI prompts to unlock new possibilities in creativity, automation, and problem-solving.</p>
+      </div>
+      <div class="project-card" tabindex="0">
+        <h3>Tech Education & Tutorials</h3>
+        <p>Accessible and beginner-friendly lessons and guides that help anyone level up their tech skills in programming, AI, and more.</p>
+      </div>
+      <div class="project-card" tabindex="0">
+        <h3>Software Development</h3>
+        <p>Building reliable, efficient software solutions tailored to real-world problems and user needs.</p>
+      </div>
+      <div class="project-card" tabindex="0">
+        <h3>Community & Collaboration</h3>
+        <p>Fostering a vibrant community where tech enthusiasts share knowledge, collaborate on projects, and grow together.</p>
+      </div>
+    </div>
+
+    <a href="index.html" class="back-link" aria-label="Back to homepage">← Back to Home</a>
+  </main>
+</body>
+</html>
